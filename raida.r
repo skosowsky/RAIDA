@@ -11,6 +11,8 @@ library("protoclust")
 library("qvalue")
 library("limma")
 library("RAIDA")
+
+###Set WD to location of input data
 setwd("C:\\Users\\Sean\\Documents\\R\\Data\\Metagenomic-Analysis-master\\Original data")
 filelist<-as.list(list.files("C:\\Users\\Sean\\Documents\\R\\Data\\Metagenomic-Analysis-master\\Original data",pattern=".csv"))
 filenames<-list.files("C:\\Users\\Sean\\Documents\\R\\Data\\Metagenomic-Analysis-master\\Original data",pattern=".csv")
@@ -56,6 +58,7 @@ filenames<-filenames[-5]
 fnames<-vector(length=6)
 for(i in 1:6){
 fnames[i]<-paste("RAIDA.OUTPUT",filenames[i],sep=".")}
+###Set to desired destination of output data
 setwd("C:\\Users\\Sean\\Documents\\R\\Data\\Metagenomic-Analysis-master\\RAIDA output")
 for(i in 1:6){
 write.csv(raida.list[[i]],file=fnames[i],row.names=T)
