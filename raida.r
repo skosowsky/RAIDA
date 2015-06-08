@@ -1,11 +1,16 @@
 source("http://www.bioconductor.org/biocLite.R")
+
 biocLite("limma")
 	a
 biocLite("qvalue")
 	a
 install.packages("http://cals.arizona.edu/~anling/software/RAIDA_1.0.tar.gz",repos=NULL,type="source")
 
-
+library("BiocInstaller")
+library("protoclust")
+library("qvalue")
+library("limma")
+library("RAIDA")
 setwd("C:\\Users\\Sean\\Documents\\R\\Data\\Metagenomic-Analysis-master\\Original data")
 filelist<-as.list(list.files("C:\\Users\\Sean\\Documents\\R\\Data\\Metagenomic-Analysis-master\\Original data",pattern=".csv"))
 filenames<-list.files("C:\\Users\\Sean\\Documents\\R\\Data\\Metagenomic-Analysis-master\\Original data",pattern=".csv")
@@ -51,6 +56,7 @@ filenames<-filenames[-5]
 fnames<-vector(length=6)
 for(i in 1:6){
 fnames[i]<-paste("RAIDA.OUTPUT",filenames[i],sep=".")}
+setwd("C:\\Users\\Sean\\Documents\\R\\Data\\Metagenomic-Analysis-master\\RAIDA output")
 for(i in 1:6){
 write.csv(raida.list[[i]],file=fnames[i],row.names=T)
 }
