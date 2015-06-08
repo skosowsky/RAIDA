@@ -45,4 +45,12 @@ ordereddata[[i]]<-ordereddata[[i]][-1]}
 
 raida.list<-list()
 for(j in 1:6){
-raida.list[[j]]<-raida(ordereddata[[j]],c(9,8))}
+raida.list[[j]]<-raida(ordereddata[[j]],c(9,8),show.ref.features = FALSE, show.all.features = FALSE, mtcm="BY", zsc = 0)}
+
+filenames<-filenames[-5]
+fnames<-vector(length=6)
+for(i in 1:6){
+fnames[i]<-paste("RAIDA.OUTPUT",filenames[i],sep=".")}
+for(i in 1:6){
+write.csv(raida.list[[i]],file=fnames[i],row.names=T)
+}
